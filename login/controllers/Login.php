@@ -12,9 +12,9 @@ class Login extends Loginresources implements Processdata{
 
 			$fields = json_decode(file_get_contents("php://input"));
 
-			$email = Forms::set($fields->email);
+			$email = Forms::sanitize($fields->email);
 
-			$tel = Forms::set($fields->telephone);
+			$tel = Forms::sanitize($fields->telephone);
 
 
 			var_dump($tel);

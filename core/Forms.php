@@ -34,8 +34,6 @@ abstract class Forms
 
         if(isset($_POST[$input])){
 
-            
-
             return  $_POST[$input];
 
         }
