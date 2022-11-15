@@ -14,6 +14,11 @@ class Login extends Loginresources implements Processdata{
 
 			$tel = Forms::set('telephone');
 
+
+			var_dump($tel);
+
+			die;ß
+
 			$data = ['email'=>$email,'telephone'=>$tel];
 
 			return $this->createPost($data);
