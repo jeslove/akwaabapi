@@ -11,11 +11,11 @@
 
 define('DEBUG', true); // DEBUG MODE ON
 
-define('DB_NAME', 'churchdatabase'); //Databse Name restapi #digichor_tesanotbc
+define('DB_NAME', 'spagenc2_akwaaba'); //Databse Name restapi #digichor_tesanotbc
 
-define('DB_USER', 'root'); //Databse UserName #digichor_tbchurch
+define('DB_USER', 'spagenc2_akwaabauser'); //Databse UserName #digichor_tbchurch
 
-define('DB_PASSWORD', ''); //Databse Password #6t#DFwXQtblf
+define('DB_PASSWORD', 'XFNi$r3U5!8]'); //Databse Password #6t#DFwXQtblf
 
 define('DB_HOST', 'localhost'); //Databse Host #mysql3000.mochahost.com
 
