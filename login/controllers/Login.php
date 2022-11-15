@@ -12,6 +12,10 @@ class Login extends Loginresources implements Processdata{
 
 			$fields = json_decode(file_get_contents("php://input"));
 
+			var_dump($fields);
+
+			die;
+
 			$email = Forms::get($fields->email);
 
 			$telephone = Forms::get($fields->telephone);
