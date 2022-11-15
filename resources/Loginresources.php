@@ -15,7 +15,11 @@ class Loginresources extends Logins{
 
 		if($data){
 
-			echo json_encode(['status'=>'ok','response'=>$data]);
+			if($this->createLogin($data)){
+
+				echo json_encode(['status'=>'ok','response'=>"Data pushed successfully."]);
+			}
+			else{echo json_encode(['status'=>'error','response'=>'Oops! Something went wrong.',]);}
 		}
 		else{echo json_encode(['status'=>'error','response'=>'No data found.',]);}
 	}
