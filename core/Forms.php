@@ -34,14 +34,20 @@ abstract class Forms
 
         if(isset($_POST[$input])){
 
-            return $_POST[$input];
+            $fields = json_decode(file_get_contents("php://input"));
+
+            return $fields-> $_POST[$input];
 
         }
         else if(isset($_GET[$input]))
         {
-            return $_GET[$input];
+            $fields = json_decode(file_get_contents("php://input"));
+            
+            return $fields-> $_GET[$input];
         }
     }
+
+    
     
 
     private static function getmethod()

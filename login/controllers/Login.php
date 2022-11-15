@@ -10,9 +10,9 @@ class Login extends Loginresources implements Processdata{
 	{
 		if(Forms::isPost()){
 
-			$email = Forms::get('email');
+			$email = Forms::set('email');
 
-			$tel = Forms::get('telephone');
+			$tel = Forms::set('telephone');
 
 			$data = ['email'=>$email,'telephone'=>$tel];
 
