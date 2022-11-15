@@ -14,7 +14,7 @@ class Loginresources extends Logins{
 		parent:: __construct();
 	}
 
-	protected function createPost($email,$telephone,$password){
+	protected function createPost($email,$telephone,$password,$username){
 
 		if(API_KEY == $this->getHeaderpath())
 		{
@@ -38,7 +38,7 @@ class Loginresources extends Logins{
 
 			$userId = strtoupper($this->getRandomCode(10));
 	
-			$data = ['email'=>$email,'telephone'=>$telephone,'password'=>$encryption,'userId'=>$userId,'permission'=>'Client','created_at'=>$this->dayTimeZone(),'status'=>1];
+			$data = ['email'=>$email,'telephone'=>$telephone,'password'=>$encryption,'userId'=>$userId,'permission'=>'Client','created_at'=>$this->dayTimeZone(),'status'=>1,'username'=>$username];
 	
 			if($this->createLogin($data)){
 	
