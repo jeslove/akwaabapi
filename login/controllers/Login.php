@@ -14,11 +14,11 @@ class Login extends Loginresources implements Processdata{
 
 			$email = Forms::sanitize($fields->email);
 
-			$tel = Forms::sanitize($fields->telephone);
+			$telephone = Forms::sanitize($fields->telephone);
 
-			$data = ['email'=>$email,'telephone'=>$tel];
+			$password = Forms::sanitize($fields->password);
 
-			return $this->createPost($data);
+			return $this->createPost($email,$telephone,$password);
 
 		}else{echo json_encode(['status'=>'error','response'=>'Oops! Invalid request.']);}
 	}

@@ -85,6 +85,33 @@ class Auth
         return $headers;
     }
 
+	/** Process Auth token via header */
+	public static function getX_API_KEYHeader()
+    {
+        $headers = null;
+
+        if (isset($_SERVER['X-API-KEY']))
+        {
+            $headers = trim($_SERVER["X-API-KEY"]);
+        }
+        else if (isset($_SERVER['HTTP_X-API-KEY']))
+        { //Nginx or fast CGI
+            $headers = trim($_SERVER["HTTP_X-API-KEY"]);
+        } 
+        elseif (function_exists('apache_request_headers'))
+        {
+            $requestHeaders = apache_request_headers();
+            // Server-side fix for bug in old Android versions (a nice side-effect of this fix means we don't care about capitalization for Authorization)
+            $requestHeaders = array_combine(array_map('ucwords', array_keys($requestHeaders)), array_values($requestHeaders));
+            
+            if (isset($requestHeaders['X-API-KEY']))
+            {
+                $headers = trim($requestHeaders['X-API-KEY']);
+            }
+        }
+        return $headers;
+    }
+
 	/** Get access token via bearer */
     public static function getBearerToken()
     {

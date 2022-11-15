@@ -15,4 +15,9 @@ class Logins extends Model{
 
 		return Logins::insert($data);
 	}
+
+	protected function checkDuplicate($value,$item){
+
+		return Logins::query()->where($value,$item)->first();
+	}
 }

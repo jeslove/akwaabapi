@@ -18,12 +18,17 @@ trait Traitconnnect
 		return $this->_checktoken = Auth::checkexpiredToken();
 	}
 
-	protected function connect($item){
+	protected function getHeaderpath(){
 
-		$data = new Smsconnection();
-
-		return $data->connectSmsKey($item);	
+		return Auth::getX_API_KEYHeader();
 	}
+
+	// protected function connect($item){
+
+	// 	$data = new Smsconnection();
+
+	// 	return $data->connectSmsKey($item);	
+	// }
 
 	// Generate random codes for verification token
 	protected function getVerificationCode($getNumbers)
@@ -45,12 +50,12 @@ trait Traitconnnect
 	
 
 	/** Update sms table counter */
-	protected function countsmspost($churchId,$data)
-	{
-		$check = new Smsconnection();
+	// protected function countsmspost($churchId,$data)
+	// {
+	// 	$check = new Smsconnection();
 
-		return $check->count_sms_post($churchId,$data);
-	}
+	// 	return $check->count_sms_post($churchId,$data);
+	// }
 
 	# Day Zone for Africa
 	protected function dateZone()
