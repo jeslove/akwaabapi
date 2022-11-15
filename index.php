@@ -18,6 +18,8 @@ ini_set('display_errors', ERR);
 
 ini_set('display_startup_errors', ERR);
 
+ini_set("allow_url_fopen", true);
+
 error_reporting(E_ALL);
 
 $dirs = array('connect','configs');
