@@ -1,0 +1,23 @@
+Options All -Indexes
+RewriteEngine On
+
+<IfModule mod_rewrite.c>
+    # Redirect /index.php to / (optional, but recommended I guess)
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*index\.php
+    RewriteRule ^index.php/?(.*)$ $1 [R=301,L]
+    RewriteCond $1 !^(config|core|js|fonts|robots\.txt)
+
+    # Run everything else but real files through index.php
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php/$1?%{QUERY_STRING} [L]
+</IfModule>
+
+
+Header add Access-Control-Allow-Credentials "true"
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(pdf)$">
+         Header set Access-Control-Allow-Origin "http://localhost:4200"
+   </FilesMatch>
+</IfModule>
