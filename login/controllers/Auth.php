@@ -12,7 +12,7 @@ class Auth extends Loginresources implements Processdata{
 
 			$email = Forms::get('email');
 
-			$tel = Forms::get('tel');
+			$tel = Forms::get('telephone');
 
 			$data = ['email'=>$email,'telephone'=>$tel];
 
