@@ -17,7 +17,7 @@ class Login extends Loginresources implements Processdata{
 
 			var_dump($tel);
 
-			die;ß
+			die;
 
 			$data = ['email'=>$email,'telephone'=>$tel];
 
