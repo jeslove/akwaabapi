@@ -12,17 +12,13 @@ class Login extends Loginresources implements Processdata{
 
 			$fields = json_decode(file_get_contents("php://input"));
 
-			$email = $fields->email;
+			$email = filter_var($fields->email,FILTER_VALIDATE_EMAIL,FILTER_SANITIZE_EMAIL);
 
-			$telephone = Forms::get($fields->telephone);
+			$telephone = filter_var($fields->telephone,FILTER_VALIDATE_INT);
 
-			$password = Forms::get($fields->password);
+			$password = filter_var($fields->password,FILTER_DEFAULT);
 
-			$username = Forms::get($fields->username);
-
-			var_dump($email);
-
-			die;
+			$username = filter_var($fields->username,FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_HIGH);
 
 			if(!empty($email) && !empty($telephone) && !empty($username) && !empty($password)){
 
