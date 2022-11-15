@@ -168,11 +168,11 @@ class ComposerStaticInit9462d262ad24ff0ff37b965be1fbc2b0
 
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
-        'Auth' => __DIR__ . '/../..' . '/login/controllers/Auth.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'DevCoder\\SessionInterface' => __DIR__ . '/../..' . '/core/SessionInterface.php',
         'DevCoder\\Sessions' => __DIR__ . '/../..' . '/core/Sessions.php',
         'Hotel' => __DIR__ . '/../..' . '/hotelmanagement/controllers/Hotel.php',
+        'Login' => __DIR__ . '/../..' . '/login/controllers/Login.php',
         'Migrate' => __DIR__ . '/../..' . '/migration/Migrate.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',

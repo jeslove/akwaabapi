@@ -7,11 +7,11 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
-    'Auth' => $baseDir . '/login/controllers/Auth.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'DevCoder\\SessionInterface' => $baseDir . '/core/SessionInterface.php',
     'DevCoder\\Sessions' => $baseDir . '/core/Sessions.php',
     'Hotel' => $baseDir . '/hotelmanagement/controllers/Hotel.php',
+    'Login' => $baseDir . '/login/controllers/Login.php',
     'Migrate' => $baseDir . '/migration/Migrate.php',
     'Normalizer' => $vendorDir . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
     'PhpToken' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',

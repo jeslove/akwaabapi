@@ -4,7 +4,7 @@ use core\Forms\Forms;
 use interfaces\Data\Processdata;
 use resources\Loginresources\Loginresources;
 
-class Auth extends Loginresources implements Processdata{
+class Login extends Loginresources implements Processdata{
 
 	public function create()
 	{
