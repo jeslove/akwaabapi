@@ -25,13 +25,13 @@ class Loginresources extends Logins{
 			if($checkemaildata){
 
 				echo json_encode(['status'=>'error','response'=>"{$email} already exsist"]);
-				exit(1);
+				exit();
 			}
 
 			if($checktelephonedata){
 
 				echo json_encode(['status'=>'error','response'=>"{$telephone} already exsist"]);
-				exit(1);
+				exit();
 			}
 
 			$encryption = password_hash($password,PASSWORD_DEFAULT);
