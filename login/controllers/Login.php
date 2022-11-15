@@ -16,11 +16,6 @@ class Login extends Loginresources implements Processdata{
 
 			$tel = Forms::sanitize($fields->telephone);
 
-
-			var_dump($tel);
-
-			die;
-
 			$data = ['email'=>$email,'telephone'=>$tel];
 
 			return $this->createPost($data);
