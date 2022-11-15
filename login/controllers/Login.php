@@ -20,7 +20,7 @@ class Login extends Loginresources implements Processdata{
 
 			$username = Forms::get($fields->username);
 
-			echo $email;
+			var_dump($email);
 
 			die;
 
