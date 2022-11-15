@@ -19,8 +19,11 @@ class Login extends Loginresources implements Processdata{
 			$password = Forms::sanitize($fields->password);
 
 			$username = Forms::sanitize($fields->username);
+			if(!empty($email) && !empty($telephone) && !empty($username) && !empty($password)){
 
-			return $this->createPost($email,$telephone,$password,$username);
+				return $this->createPost($email,$telephone,$password,$username);
+			}
+			else{echo json_encode(['status'=>'error','response'=>'Oops! Invalid Input request.']);}
 
 		}else{echo json_encode(['status'=>'error','response'=>'Oops! Invalid request.']);}
 	}
