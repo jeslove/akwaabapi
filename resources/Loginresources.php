@@ -16,39 +16,35 @@ class Loginresources extends Logins{
 
 	protected function createPost($email,$telephone,$password){
 
-		$checkemaildata = $this->checkDuplicate('email',$email);
+		if(API_KEY == $this->getHeaderpath())
+		{
+			$checkemaildata = $this->checkDuplicate('email',$email);
 
-		$checktelephonedata = $this->checkDuplicate('telephone',$telephone);
+			$checktelephonedata = $this->checkDuplicate('telephone',$telephone);
 
-		$dta = $this->getHeaderpath();
+			if($checkemaildata){
 
-		var_dump($dta);
+				echo json_encode(['status'=>'error','response'=>"{$email} already exsist"]);
+				exit(1);
+			}
 
-		die;
+			if($checktelephonedata){
 
-		if($checkemaildata){
+				echo json_encode(['status'=>'error','response'=>"{$telephone} already exsist"]);
+				exit(1);
+			}
 
-			echo json_encode(['status'=>'error','response'=>"{$email} already exsist"]);
-			exit(1);
+			$encryption = password_hash($password,PASSWORD_DEFAULT);
+
+			$userId = strtoupper($this->getRandomCode(10));
+	
+			$data = ['email'=>$email,'telephone'=>$telephone,'password'=>$encryption,'userId'=>$userId,'permission'=>'Client','created_at'=>$this->dayTimeZone(),'status'=>1];
+	
+			if($this->createLogin($data)){
+	
+				echo json_encode(['status'=>'ok','response'=>"Account created successfully."]);
+			}
+			else{echo json_encode(['status'=>'error','response'=>'Oops! Something went wrong.',]);}
 		}
-
-		if($checktelephonedata){
-
-			echo json_encode(['status'=>'error','response'=>"{$telephone} already exsist"]);
-			exit(1);
-		}
-
-		$encryption = password_hash($password,PASSWORD_DEFAULT);
-
-		$userId = strtoupper($this->getRandomCode(10));
-
-		$data = ['email'=>$email,'telephone'=>$telephone,'password'=>$encryption,'userId'=>$userId,'permission'=>'Client','created_at'=>$this->dayTimeZone(),'status'=>1];
-
-		if($this->createLogin($data)){
-
-			echo json_encode(['status'=>'ok','response'=>"Account created successfully."]);
-		}
-		else{echo json_encode(['status'=>'error','response'=>'Oops! Something went wrong.',]);}
-		
 	}
 }
