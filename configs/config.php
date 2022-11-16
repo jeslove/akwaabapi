@@ -79,7 +79,7 @@ define('EMAIL_SMTP_PORT', 587);
 
 // define('EMAIL_SMTP_PASSWORD', '');
 
-define('EMAIL_SMTP_HOST', 'smtp://localhost'); //smtp.example.com/smtp://localhost
+define('EMAIL_SMTP_HOST', 'localhost'); //smtp.example.com/smtp://localhost
 
 // define('EMAIL_SMTP_AUTH', '');
 
