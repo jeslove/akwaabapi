@@ -34,13 +34,18 @@ class Login extends Loginresources implements Processdata{
 					exit;
 				}
 
-				if(!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT)){
+				if(!preg_match('[0-9]+',$telephone)){
 
 					echo json_encode(['status'=>'error','response'=>"Invalid phone number format."]);
 					exit;
 				}
 
-				return $this->createPost($email,$telephone,$password,$username);
+				if(strlen($telephone) < 10 || strlen($telephone) > 14){
+
+					echo json_encode(['status'=>'error','response'=>"Invalid phone number format."]);
+					exit;
+				}else{return $this->createPost($email,$telephone,$password,$username);}
+
 			}
 			else{echo json_encode(['status'=>'error','response'=>'Oops! Invalid Input request.']);}
 
