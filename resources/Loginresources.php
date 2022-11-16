@@ -133,8 +133,12 @@ class Loginresources extends Logins{
 
 		$body = "
 		
-		<h1>Hello dear<h1/>
-		<p>Please click here to verify your account</p>
+		<h4>Hello Frank,<h4/>
+		<h5>Welcome to Akwaaba.</h5>
+		<p>Thank you for choosing us</p>
+		<p>Please click here <a href='digich.org'>verify account</a> to verify your account email</p>
+
+		<span>Thank you.</span>
 		
 		";
 		$this->sendEmail('jerryjeslove@gmail.com','Account verification',$body);

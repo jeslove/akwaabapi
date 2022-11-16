@@ -96,7 +96,7 @@ trait Traitconnnect
 		$mail = new PHPMailer(true);
 
 		$mail->setFrom(SET_FROM_MAIL, 'Akwaaba');
-		$mail->addAddress($email, 'Joe User'); 
+		$mail->addAddress($email); 
 		$mail->addReplyTo(SET_FROM_MAIL, 'Information');
 		$mail->addCC(MAILCC);
 		$mail->addBCC(MAILBCC);
