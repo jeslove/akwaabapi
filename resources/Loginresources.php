@@ -48,9 +48,20 @@ class Loginresources extends Logins{
 			$userId = strtoupper($this->getRandomCode(10));
 	
 			$data = ['email'=>$email,'telephone'=>$telephone,'password'=>$encryption,'userId'=>$userId,'permission'=>'Client','created_at'=>$this->dayTimeZone(),'username'=>$username];
+
+			$body = "
+		
+			<h4>Hello {$username},<h4/>
+			<h5>Welcome to Akwaaba.</h5>
+			<p>Thank you for choosing us</p>
+			<p>Please click here <a href='digich.org'>verify account</a> to verify your account email</p>
+	
+			<span>Thank you.</span>";
 	
 			if($this->createLogin($data)){
-	
+
+		        $this->sendEmail($email,'Account verification',$body);
+
 				echo json_encode(['status'=>'ok','response'=>"Account created successfully."]);
 			}
 			else{echo json_encode(['status'=>'error','response'=>'Oops! Something went wrong.',]);}
@@ -129,18 +140,4 @@ class Loginresources extends Logins{
 		exit;
 	}
 
-	protected function testing(){
-
-		$body = "
-		
-		<h4>Hello Frank,<h4/>
-		<h5>Welcome to Akwaaba.</h5>
-		<p>Thank you for choosing us</p>
-		<p>Please click here <a href='digich.org'>verify account</a> to verify your account email</p>
-
-		<span>Thank you.</span>
-		
-		";
-		$this->sendEmail('jerryjeslove@gmail.com','Account verification',$body);
-	}
 }
