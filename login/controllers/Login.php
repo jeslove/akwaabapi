@@ -29,7 +29,7 @@ class Login extends Loginresources implements Processdata{
 
 			if(!empty($email) && !empty($telephone) && !empty($username) && !empty($password)){
 
-				// return $this->createPost($email,$telephone,$password,$username);
+				return $this->createPost($email,$telephone,$password,$username);
 			}
 			else{echo json_encode(['status'=>'error','response'=>'Oops! Invalid Input request.']);}
 
