@@ -42,7 +42,7 @@ class Login extends Loginresources implements Processdata{
 				
 				if(strlen($telephone) < 10 || strlen($telephone) > 14){
 
-					echo json_encode(['status'=>'error','response'=>"Invalid phone number format."]);
+					echo json_encode(['status'=>'error','response'=>"Invalid phone number length range (10-14)."]);
 					exit;
 				}else{return $this->createPost($email,$telephone,$password,$username);}
 
