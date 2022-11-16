@@ -2,7 +2,9 @@
 
 namespace connect\TriatConnect;
 use core\Auth\Auth;
-use Smsconnection;
+use Symfony\Component\Mailer\Transport;
+use Symfony\Component\Mailer\Mailer;
+use Symfony\Component\Mime\Email;
 
 trait Traitconnnect
 {
@@ -23,13 +25,6 @@ trait Traitconnnect
 		return Auth::getX_API_KEYHeader();
 	}
 
-	// protected function connect($item){
-
-	// 	$data = new Smsconnection();
-
-	// 	return $data->connectSmsKey($item);	
-	// }
-
 	// Generate random codes for verification token
 	protected function getVerificationCode($getNumbers)
 	{
@@ -48,14 +43,6 @@ trait Traitconnnect
 		return $upcoming_event_code = substr($upcoming_event_code,25, $getNewNumbers);
 	}
 	
-
-	/** Update sms table counter */
-	// protected function countsmspost($churchId,$data)
-	// {
-	// 	$check = new Smsconnection();
-
-	// 	return $check->count_sms_post($churchId,$data);
-	// }
 
 	# Day Zone for Africa
 	protected function dateZone()
@@ -103,28 +90,26 @@ trait Traitconnnect
         return $date . ' ' . $time;
     }
 
-	// send sms to members base on church Id
-	protected static function sendsms($senderId,$number,$message)
-	{
-		$curl_handle=curl_init();
+	// send email to members base on church Id
 
-		$key = SMS_KEY;
+	protected function sendEmail($email,$subject,$body){
 
-		$to = "$number";
+		$transport = Transport::fromDsn(EMAIL_SMTP_HOST);
 
-		$sender_id = "$senderId";
+		$mailer = new Mailer($transport);
 
-		$msg = "$message";
+		$email = (new Email())
+			->from(SET_FROM_MAIL)
+			->to($email)
+			->cc(MAILCC)
+			->bcc(MAILBCC)
+			->replyTo(SET_FROM_MAIL)
+			->priority(Email::PRIORITY_HIGH)
+			->subject($subject)
+			// ->text('Sending emails is fun again!');
+			->html($body);
 
-		$url = "https://apps.mnotify.net/smsapi?key=$key&to=$to&msg=$msg&sender_id=$sender_id";
-
-		curl_setopt($curl_handle, CURLOPT_URL,$url);
-		curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
-		curl_setopt($curl_handle,CURLOPT_POST, 1); 
-		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($curl_handle, CURLOPT_USERAGENT, 'Church DataBase');
-		curl_exec($curl_handle);
-		curl_close($curl_handle);
+		return $mailer->send($email);
 	}
 
 	protected function tempnam_sfx($path, $suffix)

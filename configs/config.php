@@ -62,14 +62,6 @@ define('VERIFICATION_CODE','1234567890234567890345678904567890567890678907890890
 
 define('ATHORIZATION_HEADER_NOT_FOUND', 401);
 
-// define('SMS_KEY','qNiCI57hmHrBgsZUMKukIjlNn');
-
-define('SMS_KEY','K5t9jM5FWPM46Xg1C2w6IYN9v');
-
-define('SMS_KEY_VERS2','Ib3832s7Ul2SR3qITUFiybbdtX1PHTtq4xy8z1gumjmen');
-
-define('SENDERID','Digichurch');
-
 define('APISecret','acvMExxxxxxxxxxxxSBPkjxxxx');
 
 define('APIAccess','U2FsdGVkX18RjAFhm+yqWOSUQMRQmC9SdakWO8I4wt4=');
@@ -83,21 +75,23 @@ define('APIAccess','U2FsdGVkX18RjAFhm+yqWOSUQMRQmC9SdakWO8I4wt4=');
 
 define('EMAIL_SMTP_PORT', 587);
 
-define('EMAIL_SMTP_USERNAME', '');
+// define('EMAIL_SMTP_USERNAME', '');
 
-define('EMAIL_SMTP_PASSWORD', '');
+// define('EMAIL_SMTP_PASSWORD', '');
 
-define('EMAIL_SMTP_HOST', 'smtp.example.com');
+define('EMAIL_SMTP_HOST', 'smtp://localhost'); //smtp.example.com/smtp://localhost
 
-define('EMAIL_SMTP_AUTH', '');
+// define('EMAIL_SMTP_AUTH', '');
 
 define('EMAIL_SECURITY_PORT','tls');//TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
 define('USERCASE','Localhost'); // If on live server set [Localhost] to [Live]
 
-define('SET_FROM','Roma Catholic Church');
+// define('SET_FROM','Roma Catholic Church');
 
-define('SET_FROM_MAIL','roma@romacatholic.com');
+define('SET_FROM_MAIL','info@akwaaba.com');
+define('MAILCC','info@akwaaba.com');
+define('MAILBCC','info@akwaaba.com');
 
 // <div align="center"><img src="cid:logo" width="100px"></div>
 

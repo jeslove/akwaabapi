@@ -69,9 +69,9 @@ class Loginresources extends Logins{
 	
 				if($checkuserIdentity){
 	
-					return ($checkuserIdentity->status == 1) ? $this->verifyPassword($checkuserIdentity,$authvalue,$password) : $this->userException();
+					return ($checkuserIdentity->status == 1) ? $this->verifyPassword($checkuserIdentity,$authvalue,$password) : $this->userException('Please verify your email to login.');
 				}
-		        else{$this->userException();}
+		        else{$this->userException('Invalid credentials.');}
 			}
 			else{echo json_encode(['status'=>'error','response'=>'Oops! Invalid Input format.']);}
 		}
@@ -99,11 +99,11 @@ class Loginresources extends Logins{
 					break;
 					
 					default:
-						$this->userException();
+						$this->userException('Invalid credentials.');
 					break;
 				}
 			}
-			else{$this->userException();}
+			else{$this->userException('Invalid credentials.');}
 		}
 	}
 
@@ -121,11 +121,15 @@ class Loginresources extends Logins{
 			echo json_encode(['status'=>'ok','response'=>$generatetoken]);
 			exit;
 		}
-		else{$this->userException();}
+		else{$this->userException('Invalid credentials.');}
 	}
 
-	private function userException(){
-		echo json_encode(['status'=>'error','response'=>'Invalid credentials.']);
+	private function userException($message){
+		echo json_encode(['status'=>'error','response'=>$message]);
 		exit;
+	}
+
+	protected function testing(){
+		$this->sendEmail('jerryjeslove@gmail.com','testing','Yes is working well');
 	}
 }
