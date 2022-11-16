@@ -14,7 +14,7 @@ class Login extends Loginresources implements Processdata{
 
 			$email = filter_var($fields->email,FILTER_VALIDATE_EMAIL);
 
-			$telephone = filter_var($fields->telephone,FILTER_VALIDATE_INT);
+			$telephone = filter_var($fields->telephone,FILTER_DEFAULT);
 
 			$password = filter_var($fields->password,FILTER_DEFAULT);
 
