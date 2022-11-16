@@ -2,10 +2,9 @@
 
 namespace connect\TriatConnect;
 use core\Auth\Auth;
-use Symfony\Component\Mailer\Transport;
-use Symfony\Component\Mailer\Mailer;
-use Symfony\Component\Mime\Email;
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 trait Traitconnnect
 {
 	protected $_seasion , $_checktoken;
@@ -94,22 +93,19 @@ trait Traitconnnect
 
 	protected function sendEmail($email,$subject,$body){
 
-		$transport = Transport::fromDsn(EMAIL_SMTP_HOST);
+		$mail = new PHPMailer(true);
 
-		$mailer = new Mailer($transport);
-
-		$email = (new Email())
-			->from(SET_FROM_MAIL)
-			->to($email)
-			->cc(MAILCC)
-			->bcc(MAILBCC)
-			->replyTo(SET_FROM_MAIL)
-			->priority(Email::PRIORITY_HIGH)
-			->subject($subject)
-			// ->text('Sending emails is fun again!');
-			->html($body);
-
-		return $mailer->send($email);
+		$mail->setFrom(SET_FROM_MAIL, 'Mailer');
+		$mail->addAddress($email, 'Joe User'); 
+		$mail->addReplyTo(SET_FROM_MAIL, 'Information');
+		$mail->addCC(MAILCC);
+		$mail->addBCC(MAILBCC);
+		$mail->isHTML(true);  
+		$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; 
+		$mail->Port = 465;                            
+		$mail->Subject = $subject;
+		$mail->Body    = $body;
+		return $mail->send();
 	}
 
 	protected function tempnam_sfx($path, $suffix)
