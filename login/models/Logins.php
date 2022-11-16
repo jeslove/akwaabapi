@@ -20,4 +20,9 @@ class Logins extends Model{
 
 		return Logins::query()->where($value,$item)->first();
 	}
+
+	protected function checkRequest($item)
+	{
+		return Logins::query()->where('email',$item)->orwhere('telephone',$item)->first();
+	}
 }

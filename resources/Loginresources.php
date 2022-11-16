@@ -55,4 +55,8 @@ class Loginresources extends Logins{
 			else{echo json_encode(['status'=>'error','response'=>'Oops! Something went wrong.',]);}
 		}
 	}
+
+	protected function authLogin($authvalue,$password){
+
+	}
 }
