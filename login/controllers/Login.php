@@ -34,7 +34,7 @@ class Login extends Loginresources implements Processdata{
 					exit;
 				}
 
-				if(!preg_match("/^[0-9]*$",$telephone)){
+				if(!preg_match("[0-9]",$telephone)){
 
 					echo json_encode(['status'=>'error','response'=>"Invalid phone number format."]);
 					exit;
