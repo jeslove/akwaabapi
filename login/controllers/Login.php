@@ -12,8 +12,7 @@ class Login extends Loginresources implements Processdata{
 
 			$fields = json_decode(file_get_contents("php://input"));
 
-			if($fields){
-
+			if($fields && !empty($fields->username) && !empty($fields->email) && !empty($telephone) && !empty($password)){
 				$email = filter_var($fields->email,FILTER_VALIDATE_EMAIL);
 
 				$telephone = filter_var($fields->telephone,FILTER_DEFAULT);
@@ -70,7 +69,7 @@ class Login extends Loginresources implements Processdata{
 
 			$fields = json_decode(file_get_contents("php://input"));
 
-			if($fields){
+			if($fields && !empty($fields->authvalue) && !empty($fields->password)){
 
 				$authvalue = filter_var($fields->authvalue,FILTER_DEFAULT);
 

@@ -47,7 +47,7 @@ class Loginresources extends Logins{
 
 			$userId = strtoupper($this->getRandomCode(10));
 	
-			$data = ['email'=>$email,'telephone'=>$telephone,'password'=>$encryption,'userId'=>$userId,'permission'=>'Client','created_at'=>$this->dayTimeZone(),'status'=>1,'username'=>$username];
+			$data = ['email'=>$email,'telephone'=>$telephone,'password'=>$encryption,'userId'=>$userId,'permission'=>'Client','created_at'=>$this->dayTimeZone(),'username'=>$username];
 	
 			if($this->createLogin($data)){
 	
@@ -76,7 +76,6 @@ class Loginresources extends Logins{
 			else{echo json_encode(['status'=>'error','response'=>'Oops! Invalid Input format.']);}
 		}
 		else{echo json_encode(['status'=>'error','response'=>'Invalid Api key',]);}
-
 	}
 
 	private function verifyPassword($checkuserIdentity,$authvalue,$password){
