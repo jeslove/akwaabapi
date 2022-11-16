@@ -12,9 +12,9 @@ class Login extends Loginresources implements Processdata{
 
 			$fields = json_decode(file_get_contents("php://input"));
 
-			if($fields){
+			// if($fields){
 
-				if(!empty($fields->username) && !empty($fields->email) && !empty($telephone) && !empty($password)){
+				if($fields && !empty($fields->username) && !empty($fields->email) && !empty($fields->telephone) && !empty($fields->password)){
 
 					$email = filter_var($fields->email,FILTER_VALIDATE_EMAIL);
 	
@@ -61,15 +61,15 @@ class Login extends Loginresources implements Processdata{
 						'data'=>'Required variable names (username,password,telephone and email)'
 					]);
 				}
-			}
-			else
-			{
-				echo json_encode([
-					'status'=>'error',
-					'response'=>'Oops! Invalid Input format.',
-					'data'=>'Required variable names (username,password,telephone and email)'
-				]);
-			}
+			// }
+			// else
+			// {
+			// 	echo json_encode([
+			// 		'status'=>'error',
+			// 		'response'=>'Oops! Invalid Input format.',
+			// 		'data'=>'Required variable names (username,password,telephone and email)'
+			// 	]);
+			// }
 
 		}else{echo json_encode(['status'=>'error','response'=>'Oops! Invalid request.']);}
 	}
