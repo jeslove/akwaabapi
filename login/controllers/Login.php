@@ -20,9 +20,16 @@ class Login extends Loginresources implements Processdata{
 
 			$username = filter_var($fields->username,FILTER_DEFAULT);
 
+			echo json_encode([
+				'email'=>$email,
+				'tele'=>$telephone,
+				'username'=>$username,
+				'password'=>$password
+			]);
+
 			if(!empty($email) && !empty($telephone) && !empty($username) && !empty($password)){
 
-				return $this->createPost($email,$telephone,$password,$username);
+				// return $this->createPost($email,$telephone,$password,$username);
 			}
 			else{echo json_encode(['status'=>'error','response'=>'Oops! Invalid Input request.']);}
 
