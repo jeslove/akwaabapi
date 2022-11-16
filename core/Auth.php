@@ -16,7 +16,7 @@ use Exception;
 class Auth
 {
 	/** Generate JWT-TOKEN */
-	public static function jwtToken($userId,$permission,$churchId,$tel,$role,$ministry="")
+	public static function jwtToken($userId,$permission,$email,$telephone)
 	{
 		/** API KEYS */
 		$secret_key = API_KEY;
@@ -32,10 +32,8 @@ class Auth
 		$users =[
 			"userId"=>$userId,
 			"permission"=>$permission,
-            "churchId"=>$churchId,
-            "telephone"=>$tel,
-            "rolestatus"=>$role,
-            'ministry'=>$ministry
+            "email"=>$email,
+            "telephone"=>$telephone,
 		];
 
 		$token = array(
