@@ -12,43 +12,55 @@ class Login extends Loginresources implements Processdata{
 
 			$fields = json_decode(file_get_contents("php://input"));
 
-			if(!empty($fields->username) && !empty($fields->email) && !empty($telephone) && !empty($password)){
-				$email = filter_var($fields->email,FILTER_VALIDATE_EMAIL);
+			if($fields){
 
-				$telephone = filter_var($fields->telephone,FILTER_DEFAULT);
+				if(!empty($fields->username) && !empty($fields->email) && !empty($telephone) && !empty($password)){
+
+					$email = filter_var($fields->email,FILTER_VALIDATE_EMAIL);
 	
-				$password = filter_var($fields->password,FILTER_DEFAULT);
+					$telephone = filter_var($fields->telephone,FILTER_DEFAULT);
+		
+					$password = filter_var($fields->password,FILTER_DEFAULT);
+		
+					$username = filter_var($fields->username,FILTER_DEFAULT);
 	
-				$username = filter_var($fields->username,FILTER_DEFAULT);
-
-				if(!empty($email) && !empty($telephone) && !empty($username) && !empty($password)){
-
-					if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+					if(!empty($email) && !empty($telephone) && !empty($username) && !empty($password)){
+	
+						if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+							
+							echo json_encode(['status'=>'error','response'=>"Invalid email format."]);
+							exit;
+						}
+		
+						if (!preg_match("/^[a-zA-Z-' ]*$/",$username)) {
+		
+							echo json_encode(['status'=>'error','response'=>"Only letters and white space allowed."]);
+							exit;
+						}
+		
+						if(!is_numeric($telephone)){
+		
+							echo json_encode(['status'=>'error','response'=>"Invalid phone number format."]);
+							exit;
+						}
 						
-						echo json_encode(['status'=>'error','response'=>"Invalid email format."]);
-						exit;
+						if(strlen($telephone) < 10 || strlen($telephone) > 14){
+		
+							echo json_encode(['status'=>'error','response'=>"Invalid phone number length range (10-14)."]);
+							exit;
+						}else{return $this->createPost($email,$telephone,$password,$username);}
+		
 					}
-	
-					if (!preg_match("/^[a-zA-Z-' ]*$/",$username)) {
-	
-						echo json_encode(['status'=>'error','response'=>"Only letters and white space allowed."]);
-						exit;
-					}
-	
-					if(!is_numeric($telephone)){
-	
-						echo json_encode(['status'=>'error','response'=>"Invalid phone number format."]);
-						exit;
-					}
-					
-					if(strlen($telephone) < 10 || strlen($telephone) > 14){
-	
-						echo json_encode(['status'=>'error','response'=>"Invalid phone number length range (10-14)."]);
-						exit;
-					}else{return $this->createPost($email,$telephone,$password,$username);}
-	
+					else{echo json_encode(['status'=>'error','response'=>'Oops! Invalid Input request.']);}
 				}
-				else{echo json_encode(['status'=>'error','response'=>'Oops! Invalid Input request.']);}
+				else
+				{
+					echo json_encode([
+						'status'=>'error',
+						'response'=>'Oops! Invalid Input format.',
+						'data'=>'Required variable names (username,password,telephone and email)'
+					]);
+				}
 			}
 			else
 			{
