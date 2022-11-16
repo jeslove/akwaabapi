@@ -22,16 +22,24 @@ class Loginresources extends Logins{
 
 			$checktelephonedata = $this->checkDuplicate('telephone',$telephone);
 
+			$checkusernamedata = $this->checkDuplicate('username',$username);
+
 			if($checkemaildata){
 
 				echo json_encode(['status'=>'error','response'=>"{$email} already exsist"]);
-				exit();
+				exit;
 			}
 
 			if($checktelephonedata){
 
 				echo json_encode(['status'=>'error','response'=>"{$telephone} already exsist"]);
-				exit();
+				exit;
+			}
+
+			if($checkusernamedata){
+
+				echo json_encode(['status'=>'error','response'=>"{$username} already exsist"]);
+				exit;
 			}
 
 			$encryption = password_hash($password,PASSWORD_DEFAULT);
