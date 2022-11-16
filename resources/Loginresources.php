@@ -55,6 +55,7 @@ class Loginresources extends Logins{
 			}
 			else{echo json_encode(['status'=>'error','response'=>'Oops! Something went wrong.',]);}
 		}
+		else{echo json_encode(['status'=>'error','response'=>'Invalid Api key',]);}
 	}
 
 	protected function authLogin($authvalue,$password){
@@ -70,9 +71,12 @@ class Loginresources extends Logins{
 	
 					return ($checkuserIdentity->status == 1) ? $this->verifyPassword($checkuserIdentity,$authvalue,$password) : $this->userException();
 				}
+		        else{$this->userException();}
 			}
 			else{echo json_encode(['status'=>'error','response'=>'Oops! Invalid Input format.']);}
 		}
+		else{echo json_encode(['status'=>'error','response'=>'Invalid Api key',]);}
+
 	}
 
 	private function verifyPassword($checkuserIdentity,$authvalue,$password){
@@ -100,6 +104,7 @@ class Loginresources extends Logins{
 					break;
 				}
 			}
+			else{$this->userException();}
 		}
 	}
 
@@ -117,6 +122,7 @@ class Loginresources extends Logins{
 			echo json_encode(['status'=>'ok','response'=>$generatetoken]);
 			exit;
 		}
+		else{$this->userException();}
 	}
 
 	private function userException(){
