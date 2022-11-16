@@ -20,14 +20,25 @@ class Login extends Loginresources implements Processdata{
 
 			$username = filter_var($fields->username,FILTER_DEFAULT);
 
-			echo json_encode([
-				'email'=>$email,
-				'tele'=>$telephone,
-				'username'=>$username,
-				'password'=>$password
-			]);
-
 			if(!empty($email) && !empty($telephone) && !empty($username) && !empty($password)){
+
+				if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+					
+					echo json_encode(['status'=>'error','response'=>"Invalid email format."]);
+					exit;
+				}
+
+				if (!preg_match("/^[a-zA-Z-' ]*$/",$username)) {
+
+					echo json_encode(['status'=>'error','response'=>"Only letters and white space allowed."]);
+					exit;
+				}
+
+				if(!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT)){
+
+					echo json_encode(['status'=>'error','response'=>"Invalid phone number format."]);
+					exit;
+				}
 
 				return $this->createPost($email,$telephone,$password,$username);
 			}
