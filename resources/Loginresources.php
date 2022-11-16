@@ -139,5 +139,4 @@ class Loginresources extends Logins{
 		echo json_encode(['status'=>'error','response'=>$message]);
 		exit;
 	}
-
 }
