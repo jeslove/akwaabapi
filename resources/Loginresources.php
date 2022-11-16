@@ -130,6 +130,13 @@ class Loginresources extends Logins{
 	}
 
 	protected function testing(){
-		$this->sendEmail('jerryjeslove@gmail.com','testing','Yes is working well');
+
+		$body = "
+		
+		<h1>Hello dear<h1/>
+		<p>Please click here to verify your account</p>
+		
+		";
+		$this->sendEmail('jerryjeslove@gmail.com','Account verification',$body);
 	}
 }

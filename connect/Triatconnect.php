@@ -95,12 +95,15 @@ trait Traitconnnect
 
 		$mail = new PHPMailer(true);
 
-		$mail->setFrom(SET_FROM_MAIL, 'Mailer');
+		$mail->setFrom(SET_FROM_MAIL, 'Akwaaba');
 		$mail->addAddress($email, 'Joe User'); 
 		$mail->addReplyTo(SET_FROM_MAIL, 'Information');
 		$mail->addCC(MAILCC);
 		$mail->addBCC(MAILBCC);
 		$mail->isHTML(true);  
+		$mail->Priority = 1;
+		$mail->AddCustomHeader("X-MSMail-Priority: High");
+		$mail->AddCustomHeader("Importance: High");
 		$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; 
 		$mail->Port = 465;                            
 		$mail->Subject = $subject;
