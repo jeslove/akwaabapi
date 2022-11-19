@@ -19,6 +19,7 @@ class ComposerStaticInit9462d262ad24ff0ff37b965be1fbc2b0
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         'ef65a1626449d89d0811cf9befce46f0' => __DIR__ . '/..' . '/illuminate/events/functions.php',
         'b30d5e77464a79397ec8570c5cc8b48d' => __DIR__ . '/../..' . '/configs/config.php',
+        '159b49700088862ca632af346995c28b' => __DIR__ . '/../..' . '/configs/apiconfig.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -128,9 +129,9 @@ class ComposerStaticInit9462d262ad24ff0ff37b965be1fbc2b0
         ),
         'Illuminate\\Support\\' => 
         array (
-            0 => __DIR__ . '/..' . '/illuminate/macroable',
+            0 => __DIR__ . '/..' . '/illuminate/collections',
             1 => __DIR__ . '/..' . '/illuminate/conditionable',
-            2 => __DIR__ . '/..' . '/illuminate/collections',
+            2 => __DIR__ . '/..' . '/illuminate/macroable',
             3 => __DIR__ . '/..' . '/illuminate/support',
         ),
         'Illuminate\\Pipeline\\' => 

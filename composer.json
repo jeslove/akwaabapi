@@ -8,7 +8,7 @@
     "autoload": {
         "classmap": [
             "core/",
-            "resources",
+            "resources/",
             "connect/",
             "migration/",
             "interfaces/",
@@ -20,7 +20,8 @@
             "hotelmanagement/models/"
         ],
         "files": [
-            "configs/config.php"
+            "configs/config.php",
+            "configs/apiconfig.php"
         ]
     }
 }

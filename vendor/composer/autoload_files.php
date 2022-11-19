@@ -18,4 +18,5 @@ return array(
     'b6b991a57620e2fb6b2f66f03fe9ddc2' => $vendorDir . '/symfony/string/Resources/functions.php',
     'ef65a1626449d89d0811cf9befce46f0' => $vendorDir . '/illuminate/events/functions.php',
     'b30d5e77464a79397ec8570c5cc8b48d' => $baseDir . '/configs/config.php',
+    '159b49700088862ca632af346995c28b' => $baseDir . '/configs/apiconfig.php',
 );
