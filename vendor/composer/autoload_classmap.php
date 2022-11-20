@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+    'Company' => $baseDir . '/setting/controllers/Company.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'DevCoder\\SessionInterface' => $baseDir . '/core/SessionInterface.php',
     'DevCoder\\Sessions' => $baseDir . '/core/Sessions.php',
@@ -37,5 +38,7 @@ return array(
     'core\\Validation\\Validation' => $baseDir . '/core/Validation.php',
     'interfaces\\Data\\Processdata' => $baseDir . '/interfaces/Processdata.php',
     'login\\models\\logins\\Logins' => $baseDir . '/login/models/Logins.php',
+    'resources\\Companyresources\\Companyresources' => $baseDir . '/resources/Companyresources.php',
     'resources\\Loginresources\\Loginresources' => $baseDir . '/resources/Loginresources.php',
+    'setting\\models\\companies\\Companies' => $baseDir . '/setting/models/Companies.php',
 );

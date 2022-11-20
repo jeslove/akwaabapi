@@ -6,7 +6,7 @@ class Setup implements Processdata{
 
 	public function create()
 	{
-		echo json_encode(['status'=>'ok','response'=>'Yes Setup working']);
+		
 	}
 
 	public function update()

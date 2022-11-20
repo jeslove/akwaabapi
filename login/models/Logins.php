@@ -11,6 +11,8 @@ class Logins extends Model{
 		parent:: __construct();
 	}
 
+	protected $fillable = ['telephone','email','password','username'];
+
 	protected function createLogin($data){
 
 		return Logins::insert($data);

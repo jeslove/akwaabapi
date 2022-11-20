@@ -174,6 +174,7 @@ class ComposerStaticInit9462d262ad24ff0ff37b965be1fbc2b0
 
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'Company' => __DIR__ . '/../..' . '/setting/controllers/Company.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'DevCoder\\SessionInterface' => __DIR__ . '/../..' . '/core/SessionInterface.php',
         'DevCoder\\Sessions' => __DIR__ . '/../..' . '/core/Sessions.php',
@@ -204,7 +205,9 @@ class ComposerStaticInit9462d262ad24ff0ff37b965be1fbc2b0
         'core\\Validation\\Validation' => __DIR__ . '/../..' . '/core/Validation.php',
         'interfaces\\Data\\Processdata' => __DIR__ . '/../..' . '/interfaces/Processdata.php',
         'login\\models\\logins\\Logins' => __DIR__ . '/../..' . '/login/models/Logins.php',
+        'resources\\Companyresources\\Companyresources' => __DIR__ . '/../..' . '/resources/Companyresources.php',
         'resources\\Loginresources\\Loginresources' => __DIR__ . '/../..' . '/resources/Loginresources.php',
+        'setting\\models\\companies\\Companies' => __DIR__ . '/../..' . '/setting/models/Companies.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
