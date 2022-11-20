@@ -17,7 +17,7 @@ class Company extends Companyresources implements Processdata{
 		{
 			$fields = json_decode(file_get_contents("php://input"));
 
-			if($fields && !empty($fields->companyName) && !empty($fields->email) && !empty($fields->telephone) && !empty($fields->cityId) && !empty($fields->companyAddress) && !empty($fields->companyDescription) && !empty($fields->companyDescription) && !empty($fields->region) && !empty($fields->perantCompany)){
+			if($fields && !empty($fields->companyName) && !empty($fields->email) && !empty($fields->telephone) && !empty($fields->cityId) && !empty($fields->companyAddress) && !empty($fields->companyDescription) && !empty($fields->companyDescription) && !empty($fields->region) && !empty($fields->perantCompany) && !empty($fields->countryId)){
 
 				$companyName = filter_var($fields->companyName, FILTER_DEFAULT) ;
 				$email = filter_var($fields->email,FILTER_VALIDATE_EMAIL);
@@ -74,7 +74,7 @@ class Company extends Companyresources implements Processdata{
 				echo json_encode([
 					'status'=>'error',
 					'response'=>'Oops! Invalid Input format.',
-					'data'=>'Required variable names (companyName,email,telephone,cityId,companyAddress,companyDescription,region,contactId and perantCompany)'
+					'data'=>'Required variable names (companyName,email,telephone,cityId,companyAddress,companyDescription,region,contactId and perantCompany,countryId)'
 				]);
 			}
 		}
