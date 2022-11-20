@@ -62,7 +62,8 @@ class Company extends Companyresources implements Processdata{
 						'telephone'=>$telephone,'cityId'=>$cityId,
 						'companyAddress'=>$companyAddress,'companyDescription'=>$companyDescription,
 						'region'=>$region,'perantCompany'=>$perantCompany,
-						'contactId'=>$contactId,'countryId'=>$countryId
+						'contactId'=>$contactId,'countryId'=>$countryId,
+						'created_at'=>$this->dayTimeZone()
 					];
 
 					return $this->createPost($data);
