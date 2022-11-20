@@ -14,7 +14,7 @@ class Companyresources extends Companies{
 		parent:: __construct();
 	}
 
-	protected function createPoat($data){
+	protected function createPost($data){
 
 		if($this->getchecker() === true && $data){
 
