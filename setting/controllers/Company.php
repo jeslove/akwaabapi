@@ -27,6 +27,8 @@ class Company extends Companyresources implements Processdata{
 				$companyDescription = filter_var($fields->companyDescription,FILTER_DEFAULT);
 				$region = filter_var($fields->region,FILTER_DEFAULT);
 				$perantCompany = filter_var($fields->perantCompany, FILTER_DEFAULT);
+				$contactId = filter_var($fields->contactId, FILTER_DEFAULT);
+				$countryId = filter_var($fields->countryId, FILTER_DEFAULT);
 				
 				// expression for each inputs (Input Validation)
 
@@ -59,7 +61,8 @@ class Company extends Companyresources implements Processdata{
 						'companyName'=>$companyName,'email'=>$email,
 						'telephone'=>$telephone,'cityId'=>$cityId,
 						'companyAddress'=>$companyAddress,'companyDescription'=>$companyDescription,
-						'region'=>$region,'perantCompany'=>$perantCompany
+						'region'=>$region,'perantCompany'=>$perantCompany,
+						'contactId'=>$contactId,'countryId'=>$countryId
 					];
 
 					return $this->createPost($data);

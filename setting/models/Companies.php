@@ -11,7 +11,14 @@ class Companies extends Model{
 		parent:: __construct();
 	}
 
-	protected $fillable = ['companyName','email','telephone','cityId','companyAddress','companyDescription','status','region','contactId','perantCompany'];
+	protected $fillable = [
+		'companyName','email',
+		'telephone','cityId',
+		'companyAddress','companyDescription',
+		'status','region',
+		'contactId','perantCompany','countryId'
+		
+	];
 
 	protected function createCompany($data){
 
