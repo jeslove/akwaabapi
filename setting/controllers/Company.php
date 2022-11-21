@@ -66,7 +66,7 @@ class Company extends Companyresources implements Processdata{
 						'created_at'=>$this->dayTimeZone()
 					];
 
-					return $this->createPost($data);
+					return $this->createPost($data,$telephone,$email,$companyName);
 					exit;
 				}
 		    }

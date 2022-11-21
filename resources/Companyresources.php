@@ -14,9 +14,33 @@ class Companyresources extends Companies{
 		parent:: __construct();
 	}
 
-	protected function createPost($data){
+	protected function createPost($data,$telephone,$email,$companyName){
 
-		if($this->getchecker() === true && $data){
+		if($this->getchecker() === true && count($data) > 0){
+
+			$checkemaildata = $this->checkForDuplicate('email',$email);
+
+			if($checkemaildata){
+
+				echo json_encode(['status'=>'error','response'=>"{$email} already exsist"]);
+				exit;
+			}
+
+			$checktelephonedata = $this->checkForDuplicate('telephone',$telephone);
+
+			if($checktelephonedata){
+
+				echo json_encode(['status'=>'error','response'=>"{$telephone} already exsist"]);
+				exit;
+			}
+
+			$checkcompanynamedata = $this->checkForDuplicate('companyName',$companyName);
+
+			if($checkcompanynamedata){
+
+				echo json_encode(['status'=>'error','response'=>"{$companyName} already exsist"]);
+				exit;
+			}
 
 			if($this->createCompany($data)){
 
